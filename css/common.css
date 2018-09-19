@@ -1,0 +1,911 @@
+@charset "utf-8";
+/*通用*/
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  font-weight: 400;
+}
+::-webkit-input-placeholder {
+  color: #d7d6d6;
+  font-size: 1rem;
+}
+::-moz-placeholder {
+  font-size: 1rem;
+  color: #d7d6d6;
+}
+:-ms-input-placeholder {
+  font-size: 1rem;
+  color: #d7d6d6;
+}
+input,
+button,
+textarea {
+  border: none;
+  outline: none;
+}
+a,
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
+b,
+i,
+span,
+a {
+  display: inline-block;
+}
+b {
+  font-weight: normal;
+}
+i {
+  font-style: normal;
+}
+html {
+  font-size: 16px !important;
+  background-color: #f5f5f5;
+  color: #333333;
+}
+body {
+  font-family: PingFang Regular, Roboto-Regular, "微软雅黑";
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+}
+/*页面初始变量值*/
+/*nav*/
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  background-color: #facd1b;
+  text-align: center;
+  padding: 0 .844rem;
+}
+.nav p {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: PingFang-SC-Bold;
+}
+.nav a {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: PingFang-SC-Bold;
+}
+.nav a i {
+  width: 0.625rem;
+  height: 2.75rem;
+  background-size: 0.625rem 1.125rem;
+}
+.navc {
+  padding: 0 .815rem 0 .813rem;
+  background-color: #fff;
+}
+.navc ul {
+  display: flex;
+  position: relative;
+}
+.navc ul li {
+  flex: 1 0 auto;
+  max-width: 5rem;
+  min-width: 3rem;
+}
+.navc ul li a {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.navc ul li a i.bg1 {
+  width: 0.875rem;
+  height: 0.875rem;
+  background: url(../img/morez@2x.png) 0 0 no-repeat;
+  background-size: 0.875rem 0.875rem;
+  margin-top: 0.8125rem;
+  transition: 1s ease;
+  margin-left: 0.3rem;
+}
+/*下拉菜单*/
+ul[class$=listmenu] {
+  display: none;
+  left: 0;
+  right: 0;
+  z-index: 101;
+}
+ul[class$=listmenu] li {
+  padding: 0 .815rem 0 .813rem;
+  background-color: #fff;
+  border-top: 1px solid #f5f5f5;
+}
+ul[class$=listmenu] li a {
+  width: 100%;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+ul[class$=listmenu] li a i.xz {
+  display: none;
+  width: 0.938rem;
+  height: 2.5rem;
+  background: url("../img/选择@2x.png") 0 0.95rem no-repeat;
+  background-size: 0.938rem 0.625rem;
+}
+ul.droplistmenu {
+  position: absolute;
+  top: 2.5rem;
+  width: 100%;
+  margin: 0 -0.815rem 0 -0.813rem;
+}
+ul.droplistmenu li {
+  width: 100%;
+  max-width: 100%;
+}
+.maskb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+/*底部弹出菜单*/
+.botlistmenu {
+  position: fixed;
+  bottom: 0;
+}
+.botlistmenu p {
+  background-color: #fff;
+  font-size: 1.063rem;
+  border-bottom: 0 !important;
+  text-align: center;
+  font-weight: 600;
+  font-family: PingFang-SC-Bold;
+  height: 3rem;
+  line-height: 3rem;
+}
+.botlistmenu p span {
+  font-size: 2rem;
+  font-weight: 200;
+  color: #c39528;
+}
+/*footer*/
+.footer {
+  background-color: transparent;
+  position: fixed;
+  left: 0%;
+  bottom: 0%;
+  width: 100%;
+  z-index: 10;
+}
+.footer ul {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+}
+.footer ul li {
+  flex: auto;
+  text-align: center;
+}
+.footer ul li.active a {
+  color: #c39528;
+}
+.footer ul li a {
+  display: block;
+  width: 100%;
+}
+.footer ul li a img {
+  width: 1.25rem;
+  height: 1.25rem;
+  padding-top: 0.313rem;
+}
+.footer ul li a p {
+  height: 1.563rem;
+  line-height: 1.563rem;
+  font-size: 0.75rem;
+}
+.addZ {
+  text-align: center;
+  height: 2.5rem;
+  margin: 0.3rem 0.781rem;
+  background-color: #facd1b;
+  box-shadow: 0rem 0.313rem 0.625rem 0rem #f8e496, inset -0.209rem -0.231rem 0.863rem 0.075rem #facd1b;
+  border-radius: 0.313rem;
+}
+.addZ a {
+  color: #fff;
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.addZ a .sc {
+  width: 1.563rem;
+  height: 1.313rem;
+  background-size: cover;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+/*header*/
+.header2 {
+  position: fixed;
+  top: 2.75rem;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  background-color: #fff;
+  text-align: center;
+  padding: 0 .844rem;
+}
+.header2 i {
+  width: 1.438rem;
+  height: 2.5rem;
+  margin-right: .406rem;
+  vertical-align: top;
+}
+.header2 + .main {
+  margin-top: 5.25rem;
+}
+.header {
+  margin-top: 2.75rem;
+  height: 8.031rem;
+  background-color: #facd1b;
+  padding: .1rem .844rem;
+}
+.header .media .mediaL span {
+  bottom: 0;
+  width: 1.875rem;
+  height: 0.75rem;
+  line-height: 0.6rem;
+  background-color: #ffffff;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  color: #facd1b;
+  margin-left: -0.9375rem;
+  margin-bottom: -0.3rem;
+}
+.header .media .mediaL .mediaP {
+  width: 4.125rem;
+  height: 4.125rem;
+  border-radius: 50%;
+}
+.header .media .mediaL .mediaP img {
+  width: 4.125rem;
+  height: 4.125rem;
+}
+.header .media .mediaR p:first-child i {
+  font-size: 1.063rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: 600;
+}
+.header .media .mediaR p:first-child span {
+  height: 0.813rem;
+  line-height: 0.813rem;
+  background-color: #ffffff;
+  border-radius: 0.188rem;
+  color: #facd1b;
+  font-size: 0.75rem;
+  padding: 0 .2rem;
+  margin-left: 0.688rem;
+}
+.header .media .mediaR p:nth-child(2) {
+  box-sizing: border-box;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  width: 80%;
+  overflow: hidden;
+  padding-right: 1.5rem;
+  position: relative;
+}
+.header .media .mediaR p:nth-child(2) span {
+  position: absolute;
+  width: 1.5rem;
+  right: 0;
+  bottom: 0;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+.header .media .mediaR a {
+  position: absolute;
+}
+.header .media .mediaR .bjBtn {
+  width: 1rem;
+  height: 1rem;
+  bottom: .3rem;
+  right: .5rem;
+  background: url("../img/write@2x.png") 0 0.4rem no-repeat;
+  background-size: 0.687rem 0.687rem;
+}
+.header .media .mediaR .szBtn {
+  width: 1.2rem;
+  height: 1.2rem;
+  top: -0.5rem;
+  right: 0;
+  background: url("../img/setting@2x.png") 0.1rem 0.1rem no-repeat;
+  background-size: 1rem 1rem;
+}
+/*media系列*/
+.item_top a {
+  width: 100%;
+}
+.item_top .media .mediaL span {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ec2c28;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+}
+.item_top .media .mediaL .mediaP {
+  width: 2.813rem;
+  height: 2.813rem;
+  border-radius: 0.313rem;
+}
+.item_top .media .mediaL .mediaP img {
+  width: 2.813rem;
+  height: 2.813rem;
+}
+.item_top .media .mediaR p:nth-child(2) {
+  font-size: 0.75rem;
+}
+.item_top .media .mediaR a {
+  position: absolute;
+}
+.item_top .media .mediaR .bjBtn {
+  width: 1rem;
+  height: 1rem;
+  bottom: .3rem;
+  right: .5rem;
+  background: url("../img/write@2x.png") 0 0.4rem no-repeat;
+  background-size: 0.687rem 0.687rem;
+}
+.item_top .media .mediaR .szBtn {
+  width: 1.2rem;
+  height: 1.2rem;
+  top: -0.5rem;
+  right: 0;
+  background: url("../img/setting@2x.png") 0.1rem 0.1rem no-repeat;
+  background-size: 1rem 1rem;
+}
+.media {
+  width: 100%;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+.media a {
+  width: 100%;
+}
+.media .mediaL {
+  flex: 1 0 auto;
+  margin-right: 0.875rem;
+  position: relative;
+  text-align: center;
+}
+.media .mediaL span {
+  position: absolute;
+}
+.media .mediaL .mediaP {
+  overflow: hidden;
+  background-color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px #f5f5f5;
+  margin: 0;
+}
+.media .mediaR {
+  flex: 50 1 auto;
+  position: relative;
+}
+.media .mediaR p {
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+/*手风琴效果*/
+.menu_container li {
+  margin-bottom: 0.563rem;
+  background-color: #fff;
+  padding: 0 .815rem 0 .813rem;
+}
+.menu_container .menu_title i {
+  width: 0.875rem;
+  height: 0.875rem;
+  background: url(../img/morez@2x.png) 0 0 no-repeat;
+  background-size: 0.875rem 0.875rem;
+  margin-top: 0.8125rem;
+  transition: 1s ease;
+  margin-left: 0.3rem;
+}
+.menu_container .menu_title i.active {
+  transform: rotate(-90deg);
+}
+.menu_container .menu_content {
+  font-size: 0.875rem;
+  border-top: 1px solid #f5f5f5;
+  text-align: center;
+}
+.menu_container .menu_content .zwjs {
+  text-align: left;
+  line-height: 1.5rem;
+  padding: 0.781rem 0;
+}
+.menu_container .menu_content .tbody {
+  display: flex;
+}
+.menu_container .menu_content .tbody.teh {
+  height: 5rem;
+  line-height: 1.5rem;
+  overflow: hidden;
+}
+.menu_container .menu_content .tbody span:first-child {
+  flex: 1 0 auto;
+  text-align: left;
+  min-width: 8.5rem;
+}
+.menu_container .menu_content .tbody span:nth-child(2) {
+  flex: 100 1 auto;
+  text-align: left;
+}
+/*tab*/
+.tab_head {
+  margin: 0.625rem 0;
+  text-align: center;
+  background-color: #fff;
+}
+.tab_head ul {
+  display: flex;
+  overflow: scroll;
+}
+.tab_head ul li {
+  flex: 1 0 auto;
+  min-width: 5rem;
+}
+.tab_head ul li a {
+  padding: 0 0.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: 0.875rem;
+}
+.tab_head ul li a.active {
+  color: #facd1b;
+  border-bottom: 1px solid #facd1b;
+}
+.tab_content {
+  position: relative;
+}
+.tab_content .mask {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+}
+.tab_content .tabItem {
+  display: none;
+  transition: opacity 1s linear;
+  z-index: 1;
+}
+.tab_content .tabItem p {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+.tab_content .tabItem p a {
+  font-size: 0.938rem;
+}
+.tab_content .tabItem p span {
+  font-size: 0.938rem;
+}
+.tab_content .tabItem p .more {
+  margin-top: .17rem;
+}
+.tab_content .tabItem.current {
+  display: block;
+  z-index: 5;
+}
+/*main*/
+.nav + .main {
+  margin-top: 2.75rem;
+}
+.main {
+  margin-top: -2.5rem;
+  margin-bottom: 3rem;
+  padding: 1px 0 1rem 0;
+}
+/*info*/
+div[class^=info] {
+  background-color: #fff;
+  margin-bottom: 0.531rem;
+  padding: 0 .815rem 0 .813rem;
+  /*头像资料*/
+}
+div[class^=info] .hpic {
+  height: 4.063rem;
+}
+div[class^=info] .hpic a {
+  height: 4.063rem;
+  line-height: 4.063rem;
+}
+div[class^=info] .hpic img {
+  width: 3.156rem;
+  height: 3.156rem;
+  border-radius: 50%;
+  margin-right: 0.594rem;
+  margin-top: .3rem;
+}
+div[class^=info] .hpic i.more {
+  margin-top: .9rem;
+}
+div[class^=info] .shpic a {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+div[class^=info] .shpic a span {
+  min-width: 3rem;
+}
+div[class^=info] .shpic a img {
+  width: 1.563rem;
+  height: 1.563rem;
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  margin-right: 0.469rem;
+}
+div[class^=info] .jj {
+  width: 100%;
+  overflow: hidden;
+}
+div[class^=info] p {
+  border-bottom: 1px solid #f5f5f5;
+}
+div[class^=info] > p {
+  font-size: 0.875rem;
+}
+div[class^=info] > p a {
+  width: 100%;
+}
+div[class^=info] > p i.morey {
+  width: 0.469rem;
+  height: 2.5rem;
+  margin: 0;
+  background: url("../img/morey@2x.png") 0 0.79rem no-repeat;
+  background-size: 0.469rem 0.875rem;
+}
+div[class^=info] > p span {
+  font-size: 0.875rem;
+  margin-right: .5rem;
+}
+div[class^=info] > p b {
+  color: #facd1b;
+}
+div[class^=info] > p:last-child {
+  border: 0;
+}
+div[class^=info] > p.headi {
+  font-size: 0.938rem;
+}
+div[class^=info] > p.headi i {
+  margin: 0;
+}
+div[class^=info] .bodyi {
+  display: flex;
+  text-align: center;
+}
+div[class^=info] .bodyi .item {
+  flex: auto;
+}
+div[class^=info] .bodyi .item i {
+  width: 3.063rem;
+  height: 3.063rem;
+  border-radius: 50%;
+  background-size: cover;
+}
+div[class^=info] .bodyi .item p {
+  border: 0;
+  color: #666666;
+  font-size: 0.875rem;
+}
+div[class^=info] .bodyi .item span {
+  font-size: 0.875rem;
+  height: 2.188rem;
+  line-height: 2.188rem;
+  padding-bottom: .3rem;
+}
+div[class^=info1] {
+  border-radius: .5rem .5rem 0 0;
+}
+div[class^=info2] {
+  border-radius: .5rem;
+  padding: 1.313rem 0 .3rem 0;
+  margin: -25% 0.844rem 0.688rem 0.844rem;
+}
+/*info head*/
+div[class^=info3] {
+  margin: 0.625rem 0;
+}
+/*.938   0.813*/
+div[class^=info] div[class^=info] {
+  padding: 0;
+}
+/*简历详情*/
+div[class^=info7] {
+  margin-top: 0.625rem;
+}
+div[class^=info7] div[class^=info]:first-child {
+  border-bottom: 1px solid #f5f5f5;
+}
+div[class^=info7] div[class^=info4] {
+  background-color: #fff;
+}
+div[class^=info10] {
+  margin-top: 0.625rem;
+  border-radius: 0;
+}
+div[class^=info10] p {
+  border-bottom: 0;
+}
+/*面试*/
+.ms div[class^=info4] {
+  background-color: #fff;
+  margin: 0;
+}
+.ms div[class^=info4] p {
+  overflow: hidden;
+  text-align: left;
+}
+.ms div[class^=info4] p span {
+  font-size: 0.875rem !important;
+}
+.ms div[class^=info4] p span.fr {
+  text-align: right;
+}
+.ms .info5 {
+  border: 0;
+  border-top: 1px solid #f5f5f5;
+}
+.ms .info5 p {
+  height: 3rem;
+  line-height: 3rem;
+}
+.ms .info5 a span {
+  border-radius: 2rem;
+  height: 1.563rem;
+  line-height: 1.563rem;
+  padding: 0 0.688rem;
+  margin-top: .7rem;
+  font-size: 0.875rem;
+}
+.ms .info5 a span.pj,
+.ms .info5 a span.pay {
+  border: 1px solid #facd1b;
+}
+.ms .info5 a span.apply {
+  border: 1px solid #f5f5f5;
+}
+/*钱包*/
+.qbh {
+  background-color: #fff;
+  margin: 0.485rem 0;
+}
+.qbh i {
+  width: 0.969rem;
+  height: 1rem;
+  background-size: cover;
+}
+.qbh p {
+  text-align: center;
+  border-bottom: 0;
+}
+.qbh > p:first-child {
+  font-size: 0.938rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: 600;
+}
+.qbh > p:first-child + p {
+  font-size: 2.25rem;
+  font-family: PingFang-SC-Bold;
+  font-weight: 600;
+  height: 5rem;
+  line-height: 4rem;
+}
+.qbh .zc {
+  display: flex;
+}
+.qbh .zc div {
+  flex: auto;
+}
+.tab_content .content1 p a {
+  color: #666666;
+  font-size: 0.938rem;
+}
+.tab_content .content1 p a span {
+  font-size: 0.813rem;
+}
+/*居中*/
+div[class$="_6"] {
+  margin: 0;
+}
+div[class^=info5] {
+  text-align: center;
+}
+/*简历 黄色背景 1rem*/
+div[class^=info4] {
+  background-color: #fffcf1;
+  text-align: center;
+}
+div[class^=info4] p {
+  border-bottom: 0;
+}
+div[class^=info4] i {
+  width: 0.813rem;
+  height: 0.969rem;
+  background-size: 0.813rem 0.969rem;
+  margin: 0 .594rem 0 0;
+  vertical-align: middle;
+}
+.headi a {
+  font-weight: 600;
+  font-family: PingFang-SC-Bold;
+  font-size: 1rem;
+}
+.headi span {
+  font-weight: normal;
+}
+p {
+  height: 2.5rem;
+  line-height: 2.5rem;
+}
+/*删除系列*/
+/*通用类*/
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+.ret {
+  color: #e40404;
+}
+.yet {
+  color: #facd1b;
+}
+.grt {
+  color: #29e40b;
+}
+.qt {
+  color: #27e0bf;
+}
+.grayt {
+  color: #b0b0b0;
+}
+.wt {
+  color: #fff;
+}
+.st {
+  font-size: 0.563rem !important;
+}
+.mt {
+  font-size: 0.75rem !important;
+}
+/*图标*/
+i.more {
+  width: 0.313rem;
+  height: 2.188rem;
+  margin: 0;
+  background: url("../img/more@2x.png") 0 0.79rem no-repeat;
+  background-size: 0.313rem 0.563rem;
+}
+i.qb {
+  background: url("../img/qb@2x.png") 0 0 no-repeat;
+}
+i.order {
+  background: url("../img/order@2x.png") 0 0 no-repeat;
+}
+i.zp {
+  background: url("../img/zp@2x.png") 0 0 no-repeat;
+}
+i.crz {
+  background: url("../img/crz@2x.png") 0 0 no-repeat;
+}
+i.ltrz {
+  background: url("../img/ltrz@2x.png") 0 0 no-repeat;
+}
+i.rw {
+  background: url("../img/rw@2x.png") 0 0 no-repeat;
+}
+i.inf {
+  background: url("../img/inf@2x.png") 0 0 no-repeat;
+}
+i.set {
+  background: url("../img/set@2x.png") 0 0 no-repeat;
+}
+i.delete {
+  background: url("../img/delete-icon@2x.png") 0 0 no-repeat;
+  width: 1.063rem;
+  height: 1.063rem;
+  background-size: cover;
+}
+i.tz {
+  background: url("../img/tz@2x.png") 0 0 no-repeat;
+}
+i.jl {
+  background: url("../img/jl@2x.png") 0 0 no-repeat;
+}
+i.zpxx {
+  background: url("../img/zpxx@2x.png") 0 0 no-repeat;
+}
+i.back {
+  background: url("../img/back@2x.png") 0 0.8rem no-repeat;
+}
+i.gs {
+  background: url("../img/公司@2x.png") 0 0.4rem no-repeat;
+  background-size: 1.438rem 1.438rem;
+}
+i.yy {
+  background: url("../img/语音@2x.png") 0 0 no-repeat;
+}
+i.tj {
+  background: url("../img/添加@2x.png") 0 0 no-repeat;
+}
+i.sc {
+  background: url("../img/上传w@2x.png") 0 0 no-repeat;
+}
+i.sex {
+  background: url("../img/性别@2x.png") 0 0 no-repeat;
+}
+i.nl {
+  background: url("../img/年龄@2x.png") 0 0 no-repeat;
+}
+i.xjd {
+  background: url("../img/现居地@2x.png") 0 0 no-repeat;
+}
+i.zw {
+  background: url("../img/职位@2x.png") 0 0 no-repeat;
+}
+i.gzsj {
+  background: url("../img/工作时间@2x.png") 0 0 no-repeat;
+}
+i.xz {
+  background: url("../img/薪资@2x.png") 0 0 no-repeat;
+}
+i.jj {
+  background: url("../img/简介@2x.png") 0 0 no-repeat;
+}
+i.tx {
+  background: url("../img/提现@2x.png") 0 0 no-repeat;
+}
+i.cz {
+  background: url("../img/cz@2x.png") 0 0 no-repeat;
+}
+i.mx {
+  background: url("../img/mx@2x.png") 0 0 no-repeat;
+}
+i.yhk {
+  background: url("../img/yhk@2x.png") 0 0 no-repeat;
+}
+i.xzB {
+  background: url("../img/选择@2x.png") 0 0 no-repeat;
+}
+(node:14996) [DEP0026] DeprecationWarning: util.print is deprecated. Use console.log instead.
