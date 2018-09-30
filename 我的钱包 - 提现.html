@@ -32,7 +32,7 @@
           中信银行（6479）<i class="fr more" ></i> <img src="img/中信银行@2x.png" alt="" class="fl" style="width: 2.094rem;height: 2.125rem;margin-top: 1rem;"/>
         </a>
         <ul class="botlistmenu">
-          <p>
+          <p style="padding: 0 .815rem 0 .813rem;">
             <span class="fl yet close">×</span>选择银行卡
           </p>
           <li><a href="javascript:null;" style="width: 100%;">
@@ -44,7 +44,7 @@
           <li><a href="javascript:null;" style="width: 100%;">
             中国建设银行（3781）<i class="xz fr" style="margin-top:  1rem;"></i></i> <img src="img/建设银行@2x.png" alt="" class="fl" style="width: 2.094rem;height: 2.125rem;margin-top: 1rem;"/>
           </a></li>
-          <li><a href="javascript:null;" style="width: 100%;">
+          <li><a href="我的钱包%20-%20添加银行卡.html" style="width: 100%;">
             添加银行卡<i class="xz fr" style="margin-top:  1rem;"></i></i> <img src="img/银行卡@2x.png" alt="" class="fl" style="width: 2.094rem;height: 2.125rem;margin-top: 1rem;"/>
           </a></li>
           <li><a href="javascript:null;" style="width: 100%;"></a></li>
@@ -59,19 +59,44 @@
       </a>
     </p>
 
-    <p style="height: 5rem;line-height: 5rem; ">
-      <label for="money" style="font-size: 1.563rem;vertical-align: top;">&yen;</label>
+    <p style="height: 5rem;line-height: 5rem;position: relative;">
+      <label for="money" style="font-size: 1.563rem;vertical-align: top;position:  absolute;top: 0;">&yen;</label>
       <input type="number" id="money" placeholder="可转出到卡1,280.00元"
-             style="height: 2rem;line-height: 2rem;font-size: 1.5rem;padding-left: .5rem;"/>
+             style="height: 2rem;line-height: 2rem;font-size: 1.5rem;padding-left: 1.5rem;"/>
+      <span class="yet" style="position:  absolute; top: 0;right: 0;">全部</span>
+      <span class="grayt clear" style="display:  none;font-size: 1.3rem;position:  absolute;top: 0;right: 20%;">×</span>
     </p>
   </div>
 </div>
-<div class="footer" style=" bottom: 40%;">
+<div class="footer2" style=" bottom: 40%;">
   <div class="addZ">
-    <a href="#" style="color: #333;font-size: 0.938rem;">确认提现</a>
+    <a href="javascript:null;" style="color: #333;font-size: 0.938rem;">确认提现</a>
   </div>
 </div>
 <script src="js/jquery-1.11.3.js"></script>
 <script src="js/zhaopin.js"></script>
+<script>
+  $('.clear').on('click',function(){
+    $(this).css('display','none');
+    $(this).siblings('input').val('');
+    $('.addZ').css('opacity','.5');
+    $('.addZ').children('a').attr('href','javascript:null');
+  });
+  $(function(){
+    $("input").bind('input propertychange',function(){
+      //做一些事情
+      var val = $(this).val();
+      if(!(val==='')){
+        $('.clear').css('display','block');
+        $('.addZ').css('opacity','1');
+        /*todo:链接页面地址*/
+        $('.addZ').children('a').attr('href','#');
+      }else{
+        $('.addZ').css('opacity','.5');
+        $('.addZ').children('a').attr('href','javascript:null');
+      }
+    })
+  });
+</script>
 </body>
 </html>

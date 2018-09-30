@@ -34,18 +34,28 @@ $('.tab_head').on('click', 'a', function (e) {
     $this.parent().siblings().children().removeClass('active');
     var m=$this.attr('href');
     $(m).addClass('current');
+    //$(m).fadeIn(1000);
     $(m).siblings().removeClass('current');
+    //$(m).siblings().fadeOut(1);
+    var menu_d=$('.droplistmenu');
+    menus(menu_d);
   } else {
     return;
   }
 })
+function menus(menu){
+  if(!menu.is(":hidden")) {
+    $('.maskb').css('display', 'none');
+    menu.slideUp();
+  }
+}
 /*tab切换-end*/
 
 /*select切换-star*/
 function sel(){
   $this = $('#zpms');
   var m=$this.find("option:selected").val();
-  console.dir($(m));
+  //console.dir($(m));
   $(m).addClass('current');
   $(m).siblings().removeClass('current');
 }
@@ -71,10 +81,8 @@ $(".menu_container").on('click',".menu_title",function(){
 /*下拉菜单选择*/
 $('.droplists').on('click','a',function(){
   $this=$(this)
-  var menu_d=$this.siblings('.droplistmenu');
-  var menu_b=$this.siblings('.botlistmenu');
+  var menu_d=$this.siblings('ul[class$=listmenu]');
   menu(menu_d);
-  menu(menu_b);
 });
 function menu(menu){
   if(menu.is(":hidden")){
@@ -93,5 +101,6 @@ function menu(menu){
     });
   }else{
     menu.slideUp();
+    $('.maskb').css('display','none');
   }
 }

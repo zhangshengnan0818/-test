@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="nav">
+  <a href="javascript:history.go(-1)"><i class="back fl"></i>登录</a>
+</div>
+<div class="main">
+  <div class="tab_head login" style="margin-bottom: 0;">
+    <ul>
+      <li>
+        <a href="#phLogin" class="active">验证码登录</a>
+      </li>
+      <li class="dl">
+        <a href="#paLogin">密码登录</a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="tab_content login" style="padding: 1.313rem;background-color: #fff;">
+    <div class="current tabItem" id="phLogin">
+      <div class="info8">
+        <p>
+          <i class="sj"></i> 手机号
+        </p>
+        <p>
+          <input type="number" id="phone" placeholder="手机号"/>
+        </p>
+      </div>
+      <div class="info8">
+        <p>
+          <i class="yz"></i> 验证码
+        </p>
+
+        <p>
+          <input type="number" placeholder="请输入验证码" id="yanz" style="max-width: 6rem;"/>
+          <button class="fr" id="send" onclick="sendMessage();" disabled>发送验证码</button>
+        </p>
+      </div>
+      <div class="info9">
+        <button type="button" class="loginBtn" disabled>立即登录</button>
+      </div>
+      <div class="dl" style="text-align: center;height: 3rem;line-height: 1rem;">
+        <a href="注册.html">用户注册</a>
+        <span class="yet">|</span>
+        <a href="#">忘记密码</a>
+      </div>
+    </div>
+    <div class="tabItem" id="paLogin">
+      <div class="info8">
+        <p>
+          <i class="sj"></i> 账号
+        </p>
+        <p>
+          <input type="number" id="phone2" placeholder="手机号"/>
+        </p>
+      </div>
+      <div class="info8">
+        <p>
+          <i class="yz"></i> 密码
+        </p>
+
+        <p>
+          <input type="password" placeholder="请输入验证码" id="pwd"/>
+        </p>
+      </div>
+
+      <div class="info9">
+        <button type="button" class="loginBtn" disabled>立即登录</button>
+      </div>
+      <div class="dl" style="text-align: center;height: 3rem;line-height: 1rem;">
+        <a href="注册.html">用户注册</a>
+        <span class="yet">|</span>
+        <a href="#">忘记密码</a>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/zhaopin.js"></script>
+<script src="js/RE.js"></script>
+<script>
+  function v_shopsign() {//存储店铺注册页
+    for (f in dengys) {
+      if (!dengys[f]) {
+        enableSubmit(false);
+        return;
+      }
+      enableSubmit(true);
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+div[class^="info"].info9 {
+  padding: 50px 0;
+  border-bottom: none;
+  position: relative;
+}
+div[class^="info"].info9 p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40px;
+}
+div[class^="info"].info9 p input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+div[class^="info"].info9 p input + label a {
+  width: auto;
+  color: #c39528;
+  display: inline-block;
+}
+div[class^="info"].info9 p input + label::before {
+  content: "\a0";
+  /*不换行空格*/
+  display: inline-block;
+  vertical-align: .2em;
+  width: 12px;
+  height: 12px;
+  border: solid 1px #c39528;
+  margin-right: .2em;
+  border-radius: .2em;
+  background-color: #FFF;
+  line-height: 4px;
+  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+}
+div[class^="info"].info9 p input:checked + label::before {
+  background: url("../img/选择@2x.png") 1px 2px no-repeat;
+  background-size: 9px 5.5px;
+}
+div[class^="info"].info9 input:last-child {
+  opacity: .5;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="format-detection" content="telphone=no"/>
+  <meta name="format-detection" content="email=no"/>
+  <meta name="apple-mobile-app-capable" content="yes">
+  <meta name="apple-mobile-app-status-bar-style" content="black">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="320">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="MobileOptimized" content="320">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <link rel="stylesheet" href="css/common.css"/>
+  <link rel="stylesheet" href="css/talk.css"/>
+  <title>添加银行卡</title>
+</head>
+<body>
+<div class="maskb"></div>
+<div class="nav">
+  <a href="javascript:history.go(-1)"><i class="back fl"></i>添加银行卡</a>
+</div>
+<div class="main">
+  <div class="info3">
+    <p>
+      <label for="phone" style="vertical-align: top;min-width:  5rem;display: inline-block;">预留手机号</label>
+      <input type="number" id="phone" placeholder="输入预留手机号"
+             style="height: 2rem;line-height: 2rem;padding-left: 1.5rem;width: 60%"/>
+    </p>
+    <!--验证码-->
+    <p>
+      <label for="yanz" style="vertical-align: top;min-width:  5rem;display: inline-block;">验证码</label>
+      <input type="number" id="yanz" placeholder="请输入验证码"
+             style="height: 2rem;line-height: 2rem;padding-left: 1.5rem;width: 35%"/>
+      <button class="fr" id="send" onclick="sendMessage()" style="background-color: #facd1b;border-radius: 1rem;padding: 0 .863rem;color:  #fff;line-height: 1.5rem;margin-top: .5rem;opacity: .5;" disabled>验证码</button>
+    </p>
+  </div>
+</div>
+<div class="footer2" style=" bottom: 40%;">
+  <div class="addZ">
+    <a href="javascript:null;" style="color: #333;font-size: 0.938rem;">下一步</a>
+  </div>
+</div>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/zhaopin.js"></script>
+<script>
+  $(function(){
+    $("input").bind('input propertychange',function(){
+      //做一些事情
+      var val = $(this).val().length;
+//      console.log($(this).attr('id'));
+//      console.log($(this).attr('id')==='phone');
+      if($(this).attr('id')==='phone'){
+        getPInput(val);
+      }else if($(this).attr('id')==='yanz'){
+        getYInput(val);
+      }
+//      if(!(val==='')){
+//        console.log('1');
+//        $('.clear').css('display','block');
+//        $('.addZ').css('opacity','1');
+        /*todo:链接页面地址*/
+//        $('.addZ').children('a').attr('href','#');
+//      }else{
+//        $('.addZ').css('opacity','.5');
+//        $('.addZ').children('a').attr('href','javascript:null');
+//      }
+    })
+  });
+</script>
+<script>
+  var InterValObj; //timer变量，控制时间
+  var count = 60; //间隔函数，1秒执行
+  var curCount;//当前剩余秒数
+  $send = $("#send");//发送验证码按钮
+  $input = $send.siblings('input');//验证码输入框
+  $sub1 = $(".addZ");//跳转按钮
+   var flags = [false, false];//存储注册页验证信息
+  //能否点击注册
+  function enableSubmit(bool) {
+    if (bool) {
+      /*todo:链接页面地址*/
+      $sub1.children('a').attr('href','#');//启用按钮
+      $sub1.css("opacity", 1);
+    } else {
+      $sub1.css('opacity','.5');
+      $sub1.children('a').attr('href','javascript:null');
+    }
+  }
+  /*注册按钮*/
+  function v_submitbutton() {
+    /*if (!$("#agree").is(':checked')) {//协议同意勾选
+      enableSubmit(false);
+      return;
+    }*/
+    for (f in flags) {
+      if (!flags[f]) {
+        enableSubmit(false);
+        return;
+      }
+      enableSubmit(true);
+    }
+  }
+
+
+  /*监视输入框,手机号11验证*/
+  function getPInput(len) {
+    if (len === 11) {//11位数字
+      flags[0] = true;
+      $('#send').attr('disabled',false).css('opacity','1');
+    } else {
+      flags[0] = false;
+      $('#send').attr('disabled',true).css('opacity','.5');
+    }
+    v_submitbutton();
+  }
+  /*监视输入框,验证码6位验证*/
+  function getYInput(len) {
+    if (len === 6) {//验证码书入6位
+      flags[1] = true;
+    } else {
+      flags[1] = false;
+    }
+    v_submitbutton();
+  }
+  /*发送验证码*/
+  function sendMessage() {
+    curCount = count;
+    //设置button效果，开始计时
+    $send.attr("disabled", "true");
+    $send.css("opacity", .5);
+    $send.text(curCount + "S");
+    InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+
+    //请求后台发送验证码 TODO
+
+  }
+  /*验证码timer处理函数*/
+  function SetRemainTime() {
+    if (curCount == 0) {
+      window.clearInterval(InterValObj);//停止计时器
+      $send.removeAttr("disabled");//启用按钮
+      $send.text("重新发送");
+      $send.css("opacity", 1);
+    }
+    else {
+      curCount--;
+      $send.text(curCount + "S");
+    }
+  }
+</script>
+</body>
+</html>

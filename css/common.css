@@ -18,16 +18,22 @@ dd {
   list-style: none;
   font-weight: 400;
 }
-::-webkit-input-placeholder {
-  color: #d7d6d6;
+#money::-webkit-input-placeholder {
   font-size: 1rem;
 }
-::-moz-placeholder {
+#money::-moz-placeholder {
   font-size: 1rem;
+}
+#money:-ms-input-placeholder {
+  font-size: 1rem;
+}
+::-webkit-input-placeholder {
+  color: #d7d6d6;
+}
+::-moz-placeholder {
   color: #d7d6d6;
 }
 :-ms-input-placeholder {
-  font-size: 1rem;
   color: #d7d6d6;
 }
 input,
@@ -102,6 +108,63 @@ select {
   height: 2.75rem;
   background-size: 0.625rem 1.125rem;
 }
+/*nav搜索*/
+div.nav2 {
+  position: fixed;
+  top: 2.75rem;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  background-color: #facd1b;
+  font-size: 0.938rem;
+  text-align: left;
+  z-index: 10;
+}
+div.nav2 input {
+  height: 2rem;
+  line-height: 2rem;
+}
+div.nav2 div.search {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+  margin-left: 2.156rem;
+  width: 70%;
+}
+div.nav2 div.search input#kw {
+  background-color: #fff;
+  width: 100%;
+  border-radius: 1rem;
+  border: solid 1px #5394ec;
+  padding-left: 2.781rem;
+  font-size: 0.875rem;
+}
+div.nav2 div.search span {
+  position: absolute;
+}
+div.nav2 div.search .searchIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  background: url("../img/surch@2x.png") 0 0 no-repeat;
+  background-size: 1.125rem 1.125rem;
+  left: 0.844rem;
+  bottom: 0.438rem;
+}
+div.nav2 div.search .cltIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+  background: url("../img/delate@2x.png") 0 0 no-repeat;
+  background-size: 0.875rem 0.875rem;
+  right: 0.969rem;
+  bottom: 0.563rem;
+}
+div.nav2 input#sou {
+  width: 3rem;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+/*nav链接*/
 .navc {
   padding: 0 .815rem 0 .813rem;
   background-color: #fff;
@@ -112,7 +175,7 @@ select {
 }
 .navc ul li {
   flex: 1 0 auto;
-  max-width: 5rem;
+  max-width: 8rem;
   min-width: 3rem;
 }
 .navc ul li a {
@@ -127,6 +190,9 @@ select {
   margin-top: 0.8125rem;
   transition: 1s ease;
   margin-left: 0.3rem;
+}
+.navc + .main {
+  margin-top: 10.5rem;
 }
 /*下拉菜单*/
 ul[class$=listmenu] {
@@ -155,11 +221,9 @@ ul[class$=listmenu] li a i.xz {
 ul.droplistmenu {
   position: absolute;
   top: 2.5rem;
-  width: 100%;
   margin: 0 -0.815rem 0 -0.813rem;
 }
 ul.droplistmenu li {
-  width: 100%;
   max-width: 100%;
 }
 .maskb {
@@ -234,6 +298,7 @@ ul.droplistmenu li {
   background-color: #facd1b;
   box-shadow: 0rem 0.313rem 0.625rem 0rem #f8e496, inset -0.209rem -0.231rem 0.863rem 0.075rem #facd1b;
   border-radius: 0.313rem;
+  opacity: 0.5;
 }
 .addZ a {
   color: #fff;
@@ -423,6 +488,36 @@ ul.droplistmenu li {
   height: 1.5rem;
   line-height: 1.5rem;
 }
+/*银行卡*/
+.rebg {
+  background-image: linear-gradient(90deg, #e25454 0%, #d72222 100%), linear-gradient(#ffffff, #ffffff);
+  background-blend-mode: normal,
+  normal;
+}
+.blbg {
+  background-image: linear-gradient(90deg, #2a8be1 0%, #005bac 100%), linear-gradient(#ffffff, #ffffff);
+  background-blend-mode: normal,
+  normal;
+}
+.card {
+  margin: 0.625rem 0.781rem 0 0.781rem;
+  border-radius: 0.313rem;
+}
+.card .media {
+  align-items: flex-start;
+  padding: 0.781rem 0.75rem;
+  overflow: hidden;
+  width: auto;
+}
+.card .media .mediaL .mediaP {
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+.card .media .mediaL .mediaP img {
+  width: 3.125rem;
+  height: 3.125rem;
+}
 /*手风琴效果*/
 .menu_container li {
   margin-bottom: 0.563rem;
@@ -455,14 +550,14 @@ ul.droplistmenu li {
   display: flex;
 }
 .menu_container .menu_content .tbody.teh {
-  height: 5rem;
+  height: 4.8rem;
   line-height: 1.5rem;
   overflow: hidden;
 }
 .menu_container .menu_content .tbody span:first-child {
   flex: 1 0 auto;
   text-align: left;
-  min-width: 8.5rem;
+  min-width: 7.5rem;
 }
 .menu_container .menu_content .tbody span:nth-child(2) {
   flex: 100 1 auto;
@@ -506,7 +601,6 @@ ul.droplistmenu li {
 }
 .tab_content .tabItem {
   display: none;
-  transition: opacity 1s linear;
   z-index: 1;
 }
 .tab_content .tabItem p {
@@ -645,9 +739,56 @@ div[class^=info2] {
 div[class^=info3] {
   margin: 0.625rem 0;
 }
+/*margin:0; 登陆*/
+div[class^=info8] {
+  margin-bottom: 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+div[class^=info8] p:first-child {
+  border: 0;
+}
+div[class^=info8] p i {
+  width: 15px;
+  height: 15px;
+}
+div[class^=info8] p input {
+  padding: .5rem;
+}
+div[class^=info8] p button {
+  opacity: .5;
+  background-color: #facd1b;
+  padding: 10px 0;
+  text-align: center;
+  width: 87px;
+  border-radius: 15px;
+  height: 30px;
+  line-height: 13px;
+  font-size: 0.555rem;
+  color: #fff;
+  margin: 0;
+}
+div[class^=info9] {
+  margin-bottom: 0;
+  text-align: center;
+  padding: 50px 0;
+  border-bottom: none;
+}
+div[class^=info9] button {
+  opacity: .5;
+  color: #fff;
+  background-color: #facd1b;
+  width: 170px;
+  height: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
 /*.938   0.813*/
 div[class^=info] div[class^=info] {
   padding: 0;
+}
+.dl a {
+  font-size: 0.938rem;
+  padding: 0 .813rem;
 }
 /*简历详情*/
 div[class^=info7] {
@@ -908,4 +1049,15 @@ i.yhk {
 i.xzB {
   background: url("../img/选择@2x.png") 0 0 no-repeat;
 }
-(node:14996) [DEP0026] DeprecationWarning: util.print is deprecated. Use console.log instead.
+i.zy {
+  background: url("../img/attention@2x.png") 0 0 no-repeat;
+}
+i.sj {
+  background: url(../img/手机.png) 0 0 no-repeat;
+  background-size: 15px 15px;
+}
+i.yz {
+  background: url(../img/验证码.png) 0 0 no-repeat;
+  background-size: 15px 15px;
+}
+(node:1716) [DEP0026] DeprecationWarning: util.print is deprecated. Use console.log instead.

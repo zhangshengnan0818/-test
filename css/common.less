@@ -7,17 +7,23 @@ ul, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd {
   list-style: none;
   font-weight: 400;
 }
+#money::-webkit-input-placeholder {
+  font-size: 1rem;
+}
+#money::-moz-placeholder {
+  font-size: 1rem;
+}
+#money:-ms-input-placeholder {
+  font-size: 1rem;
+}
 ::-webkit-input-placeholder {
   color: #d7d6d6;
-  font-size: 1rem;
 }
 ::-moz-placeholder {
-  font-size: 1rem;
   color: #d7d6d6;
-}
-:-ms-input-placeholder {
-  font-size: 1rem;
-  color: #d7d6d6;
+}:-ms-input-placeholder {
+
+     color: #d7d6d6;
 }
 input, button, textarea {
   border: none;
@@ -99,6 +105,63 @@ select {
   }
 }
 
+/*nav搜索*/
+div.nav2 {
+  position: fixed;
+  top: 2.75rem;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  background-color: @yellow;
+  font-size: 0.938rem;
+  text-align: left;
+  z-index: 10;
+  input{
+    height: 2rem;
+    line-height: 2rem;
+  }
+  div.search{
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    margin-left: 2.156rem;
+    width: 70%;
+    input#kw{
+      background-color: #fff;
+      width: 100%;
+      border-radius: 1rem;
+      border: solid 1px #5394ec;
+      padding-left: 2.781rem;
+      font-size: 0.875rem;
+    }
+    span{
+      position: absolute;
+    }
+    .searchIcon{
+      width: 1.125rem;
+      height: 1.125rem;
+      background: url("../img/surch@2x.png") 0 0 no-repeat;
+      background-size: 1.125rem 1.125rem;
+      left: 0.844rem;
+      bottom: 0.438rem;
+    }
+    .cltIcon{
+      width: 0.875rem;
+      height: 0.875rem;
+      background: url("../img/delate@2x.png") 0 0 no-repeat;
+      background-size: 0.875rem 0.875rem;
+      right: 0.969rem;
+      bottom: 0.563rem;
+    }
+  }
+  input#sou{
+    width: 3rem;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+  }
+}
+/*nav链接*/
 .navc {
   padding: 0 .815rem 0 .813rem;
   background-color: #fff;
@@ -107,7 +170,7 @@ select {
     position: relative;
     li {
       flex: 1 0 auto;
-      max-width: 5rem;
+      max-width: 8rem;
       min-width: 3rem;
       a {
         height: 2.5rem;
@@ -126,6 +189,9 @@ select {
   }
 }
 
+.navc+.main{
+  margin-top: 10.5rem;
+}
 /*下拉菜单*/
 ul[class$=listmenu] {
   display: none;
@@ -154,14 +220,13 @@ ul[class$=listmenu] {
 ul.droplistmenu {
   position: absolute;
   top: 2.5rem;
-  width: 100%;
   margin: 0 -.815rem 0 -.813rem;
   li{
-    width: 100%;
     max-width: 100%;
   }
 }
 .maskb{
+  //position: absolute;
   position: fixed;
   top: 0;
   left: 0;
@@ -240,6 +305,7 @@ ul.droplistmenu {
   box-shadow: 0rem 0.313rem 0.625rem 0rem #f8e496,
     inset -0.209rem -0.231rem 0.863rem 0.075rem #facd1b;
   border-radius: 0.313rem;
+  opacity: 0.5;
   a {
     color: #fff;
     height: 2.5rem;
@@ -460,6 +526,50 @@ ul.droplistmenu {
   }
 }
 
+/*银行卡*/
+.rebg{
+  background-image: linear-gradient(90deg,
+  #e25454 0%,
+  #d72222 100%),
+  linear-gradient(
+          #ffffff,
+          #ffffff);
+  background-blend-mode: normal,
+  normal;
+}
+.blbg{
+  background-image: linear-gradient(90deg,
+  #2a8be1 0%,
+  #005bac 100%),
+  linear-gradient(
+          #ffffff,
+          #ffffff);
+  background-blend-mode: normal,
+  normal;
+}
+.card{
+  margin: 0.625rem 0.781rem 0 0.781rem;
+  border-radius: 0.313rem;
+  .media{
+    align-items: flex-start;
+    padding: 0.781rem 0.75rem;
+    overflow: hidden;
+    width: auto;
+    .mediaL{
+      .mediaP{
+        border: 0;
+        box-shadow: none;
+        background-color: transparent;
+        img{
+          width: 3.125rem;
+          height: 3.125rem;
+        }
+      }
+    }
+  }
+
+}
+
 /*手风琴效果*/
 .menu_container {
   li {
@@ -492,7 +602,7 @@ ul.droplistmenu {
     }
     .tbody {
       &.teh {
-        height: 5rem;
+        height:4.8rem;
         line-height: 1.5rem;
         overflow: hidden;
       }
@@ -500,7 +610,7 @@ ul.droplistmenu {
       span:first-child {
         flex: 1 0 auto;
         text-align: left;
-        min-width: 8.5rem;
+        min-width: 7.5rem;
       }
       span:nth-child(2) {
         flex: 100 1 auto;
@@ -549,8 +659,9 @@ ul.droplistmenu {
   }
   .tabItem {
     display: none;
-    transition: opacity 1s linear;
+    //transition: opacity 1s linear;
     z-index: 1;
+    //position: absolute;
     p {
       height: 2.5rem;
       line-height: 2.5rem;
@@ -702,14 +813,63 @@ div[class^=info2] {
 div[class^=info3] {
   margin: 0.625rem 0;
 }
-
+/*margin:0; 登陆*/
+div[class^=info8] {
+  margin-bottom: 0;
+  border-bottom: 1px solid #f5f5f5;
+  p{
+    &:first-child{
+      border: 0;
+    }
+    i{
+      width: 15px;
+      height: 15px;
+    }
+    input{
+      padding: .5rem;
+    }
+    button{
+      opacity: .5;
+      background-color: #facd1b;
+      padding: 10px 0;
+      text-align: center;
+      width: 87px;
+      border-radius: 15px;
+      height: 30px;
+      line-height: 13px;
+      font-size: 0.555rem;
+      color: #fff;
+      margin: 0;
+    }
+  }
+}
+div[class^=info9] {
+  margin-bottom: 0;
+    text-align: center;
+    padding: 50px 0;
+    border-bottom: none;
+  button{
+    opacity: .5;
+    color: #fff;
+    background-color: #facd1b;
+    width: 170px;
+    height: 40px;
+    border-radius: 20px;
+    text-align: center;
+  }
+}
 /*.938   0.813*/
 div[class^=info] {
   div[class^=info] {
     padding: 0;
   }
 }
-
+.dl{
+  a{
+    font-size: 0.938rem;
+    padding: 0 .813rem;
+  }
+}
 /*简历详情*/
 div[class^=info7] {
   margin-top: 0.625rem;
@@ -998,5 +1158,16 @@ i {
   }
   &.xzB {
     background: url("../img/选择@2x.png") 0 0 no-repeat;
+  }
+  &.zy {
+    background: url("../img/attention@2x.png") 0 0 no-repeat;
+  }
+  &.sj{
+    background: url(../img/手机.png) 0 0 no-repeat;
+    background-size: 15px 15px;
+  }
+  &.yz{
+    background: url(../img/验证码.png) 0 0 no-repeat;
+    background-size: 15px 15px;
   }
 }
